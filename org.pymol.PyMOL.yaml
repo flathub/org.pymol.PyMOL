@@ -175,11 +175,20 @@ modules:
         url: https://github.com/g-truc/glm
         tag: 0.9.9.8
         commit: bf71a834948186f4097caa076cd2663c69a10e1e
+
+  - name: VTK-m
+    buildsystem: cmake
+    builddir: true
+    config-opts:
+    sources:
+      - type: archive
+        url: https://gitlab.kitware.com/vtk/vtk-m/-/archive/v1.5.1/vtk-m-v1.5.1.tar.bz2
+        sha256: 1023382a964c16540fe0d622fc8a1d48b2ee893547cf0c7b0ed11aeded077b32
         
   - name: PyMOL
     buildsystem: simple
     build-commands:
-      - python setup.py install --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
+      - python setup.py install --use-vtkm=1.5.1 --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
       - install -Dm644 data/pymol/icons/icon2.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
       - install -Dm644 ${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
