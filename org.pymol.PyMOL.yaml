@@ -188,7 +188,7 @@ modules:
   - name: PyMOL
     buildsystem: simple
     build-commands:
-      - python setup.py install --use-vtkm=1.5.1 --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
+      - python setup.py install --use-vtkm=1.5.x --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
       - install -Dm644 data/pymol/icons/icon2.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
       - install -Dm644 ${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
