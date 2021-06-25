@@ -224,9 +224,9 @@ modules:
         
   - name: PyMOL
     buildsystem: simple
-    build-options:
-      env:
-        PREFIX_PATH: "/app:/usr"
+    #build-options:
+      #env:
+        #PREFIX_PATH: "/app:/usr"
     build-commands:
       - python setup.py install --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
       - install -Dm644 data/pymol/icons/icon2.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
