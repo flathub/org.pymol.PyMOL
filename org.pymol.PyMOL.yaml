@@ -41,7 +41,7 @@ modules:
     sources:
       - type: archive
         url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2
-        sha256: 68d6ea8843d2a106ec6a7828564c1689c7a85714a35d8efafa2fee20ca366f44
+        sha256: 97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61
         
   - name: python-numpy
     buildsystem: simple
@@ -53,7 +53,7 @@ modules:
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/66/03/818876390c7ff4484d5a05398a618cfdaf0a2b9abb3a7c7ccd59fe181008/numpy-1.21.0.zip
-        sha256: e55185e51b18d788e49fe8305fd73ef4470596b33fc2c1ceb304566b99c71a69
+        sha256: e80fe25cba41c124d04c662f33f6364909b985f2eb5998aaa5ae4b9587242cce
 
   - name: python-packaging
     buildsystem: simple
@@ -108,7 +108,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/Unidata/netcdf-c/archive/v4.8.0.tar.gz
-        sha256: 99930ad7b3c4c1a8e8831fb061cb02b2170fc8e5ccaeda733bd99c3b9d31666b 
+        sha256: aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092
 
   - name: sip
     buildsystem: simple
