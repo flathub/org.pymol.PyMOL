@@ -38,10 +38,21 @@ modules:
       - -DBUILD_TESTING:BOOL=OFF
       - -DHDF5_BUILD_EXAMPLES:BOOL=OFF
       - -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON
+      - -DDEFAULT_API_VERSION:STRING=v18
     sources:
       - type: archive
         url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2
         sha256: 97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61
+
+  - name: netcdf
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: archive
+        url: https://github.com/Unidata/netcdf-c/archive/v4.8.0.tar.gz
+        sha256: aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092
         
   - name: python-numpy
     buildsystem: simple
@@ -99,16 +110,6 @@ modules:
       - type: archive
         url: https://files.pythonhosted.org/packages/13/ea/c6a302ccdfdcc1ab200bd2b7561e574329055d2974b1fb7939a7aa374da3/mmtf-python-1.1.2.tar.gz
         sha256: a5caa7fcd2c1eaa16638b5b1da2d3276cbd3ed3513f0c2322957912003b6a8df
-
-  - name: netcdf
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-    sources:
-      - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.8.0.tar.gz
-        sha256: aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092
 
   - name: sip
     buildsystem: simple
