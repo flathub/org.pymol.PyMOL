@@ -29,6 +29,11 @@ modules:
       - type: archive
         url: https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz
         sha256: 6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b
+        x-checker-data:
+          type: anitya
+          project-id: 12278
+          stable-only: true
+          url-template: https://github.com/msgpack/msgpack-c/releases/download/cpp-$version/msgpack-$version.tar.gz
 
   - name: hdf5
     buildsystem: cmake-ninja
@@ -39,10 +44,17 @@ modules:
       - -DHDF5_BUILD_EXAMPLES:BOOL=OFF
       - -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON
       - -DDEFAULT_API_VERSION:STRING=v18
+    cleanup:
+      - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2
-        sha256: 97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_12_1.tar.gz
+        sha256: e6dde173c2d243551922d23a0387a79961205b018502e6a742acb30b61bc2d5f
+        x-checker-data:
+          type: anitya
+          project-id: 1303
+          stable-only: true
+          url-template: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-$version.tar.gz
 
   - name: netcdf
     buildsystem: cmake-ninja
@@ -53,18 +65,24 @@ modules:
       - type: archive
         url: https://github.com/Unidata/netcdf-c/archive/v4.8.0.tar.gz
         sha256: aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092
+        x-checker-data:
+          type: anitya
+          project-id: 10354
+          stable-only: true
+          url-template: https://github.com/Unidata/netcdf-c/archive/v$version.tar.gz
         
   - name: python-numpy
     buildsystem: simple
-    ensure-writable:
-      - /lib/python3.8/site-packages/easy-install.pth
     build-commands:
       - rm pyproject.toml
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/66/03/818876390c7ff4484d5a05398a618cfdaf0a2b9abb3a7c7ccd59fe181008/numpy-1.21.0.zip
-        sha256: e80fe25cba41c124d04c662f33f6364909b985f2eb5998aaa5ae4b9587242cce
+        url: https://files.pythonhosted.org/packages/0b/a7/e724c8df240687b5fd62d8c71f1a6709d455c4c09432c7412e3e64f4cbe5/numpy-1.21.1.zip
+        sha256: dff4af63638afcc57a3dfb9e4b26d434a7a602d225b42d746ea7fe2edf1342fd
+        x-checker-data:
+          type: pypi
+          name: numpy
 
   - name: python-packaging
     buildsystem: simple
@@ -72,8 +90,11 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz
-        sha256: 5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5
+        url: https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz
+        sha256: 7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7
+        x-checker-data:
+          type: pypi
+          name: packaging
         
   - name: python-Pyparsing
     buildsystem: simple
@@ -81,8 +102,11 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://github.com/pyparsing/pyparsing/releases/download/pyparsing_2.4.7/pyparsing-2.4.7.tar.gz
+        url: https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz
         sha256: c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1
+        x-checker-data:
+          type: pypi
+          name: Pyparsing
         
   - name: python-toml
     buildsystem: simple
@@ -92,8 +116,11 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://github.com/uiri/toml/archive/refs/tags/0.10.2.tar.gz
-        sha256: 71d4039bbdec91e3e7591ec5d6c943c58f9a2d17e5f6783acdc378f743fcdd2a
+        url: https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz
+        sha256: b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f
+        x-checker-data:
+          type: pypi
+          name: toml
         
   - name: mmtf-cpp
     buildsystem: cmake-ninja
@@ -101,6 +128,11 @@ modules:
       - type: archive
         url: https://github.com/rcsb/mmtf-cpp/archive/v1.0.0.tar.gz
         sha256: 881f69c4bb56605fa63fd5ca50842facc4947f686cbf678ad04930674d714f40
+        x-checker-data:
+          type: anitya
+          project-id: 221487
+          stable-only: true
+          url-template: https://github.com/rcsb/mmtf-cpp/archive/v$version.tar.gz
         
   - name: python-mmtf-python
     buildsystem: simple
@@ -110,6 +142,9 @@ modules:
       - type: archive
         url: https://files.pythonhosted.org/packages/13/ea/c6a302ccdfdcc1ab200bd2b7561e574329055d2974b1fb7939a7aa374da3/mmtf-python-1.1.2.tar.gz
         sha256: a5caa7fcd2c1eaa16638b5b1da2d3276cbd3ed3513f0c2322957912003b6a8df
+        x-checker-data:
+          type: pypi
+          name: mmtf-python
 
   - name: sip
     buildsystem: simple
@@ -130,6 +165,9 @@ modules:
       - type: archive
         url: https://files.pythonhosted.org/packages/b1/40/dd8f081f04a12912b65417979bf2097def0af0f20c89083ada3670562ac5/PyQt5_sip-12.9.0.tar.gz
         sha256: d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32
+        x-checker-data:
+          type: pypi
+          name: PyQt5-sip
  
   - name: PyQt5
     buildsystem: simple
@@ -166,6 +204,9 @@ modules:
       - type: archive
         url: https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz
         sha256: 2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be
+        x-checker-data:
+          type: pypi
+          name: PyQt5
         
   - name: glm
     buildsystem: simple
@@ -176,6 +217,9 @@ modules:
         url: https://github.com/g-truc/glm
         tag: 0.9.9.8
         commit: bf71a834948186f4097caa076cd2663c69a10e1e
+        x-checker-data:
+          type: git
+          tag-pattern: ([\d.]+)$
 
   #- name: openmpi
     #sources:
@@ -237,6 +281,11 @@ modules:
       - type: archive
         url: https://github.com/schrodinger/pymol-open-source/archive/v2.5.0.tar.gz
         sha256: aa828bf5719bd9a14510118a93182a6e0cadc03a574ba1e327e1e9780a0e80b3
+        x-checker-data:
+          type: anitya
+          project-id: 100773
+          stable-only: true
+          url-template: https://github.com/schrodinger/pymol-open-source/archive/v$version.tar.gz
         # patch from Fedora
         # https://src.fedoraproject.org/rpms/pymol/tree/rawhide
       - type: patch
