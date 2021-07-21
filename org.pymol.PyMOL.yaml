@@ -39,9 +39,11 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_TESTING:BOOL=OFF
       - -DHDF5_BUILD_EXAMPLES:BOOL=OFF
+      - -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON
+      - -DDEFAULT_API_VERSION:STRING=v18
     cleanup:
       - /share/hdf5_examples
     sources:
@@ -82,7 +84,7 @@ modules:
           type: pypi
           name: numpy
 
-  - name: python3-packaging
+  - name: python-packaging
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
@@ -94,7 +96,7 @@ modules:
           type: pypi
           name: packaging
         
-  - name: python3-Pyparsing
+  - name: python-Pyparsing
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
@@ -106,7 +108,7 @@ modules:
           type: pypi
           name: Pyparsing
         
-  - name: python3-toml
+  - name: python-toml
     buildsystem: simple
     ensure-writable:
       - /lib/python3.8/site-packages/easy-install.pth
