@@ -24,7 +24,7 @@ modules:
       - /include
       - /lib/cmake
       - /lib/pkgconfig
-      - '*.a'  
+      - '*.a'
     sources:
       - type: archive
         url: https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz
@@ -63,14 +63,14 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.8.0.tar.gz
-        sha256: aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092
+        url: https://github.com/Unidata/netcdf-c/archive/v4.8.1.tar.gz
+        sha256: bc018cc30d5da402622bf76462480664c6668b55eb16ba205a0dfb8647161dd0
         x-checker-data:
           type: anitya
           project-id: 10354
           stable-only: true
           url-template: https://github.com/Unidata/netcdf-c/archive/v$version.tar.gz
-        
+
   - name: python-numpy
     buildsystem: simple
     build-commands:
@@ -95,7 +95,7 @@ modules:
         x-checker-data:
           type: pypi
           name: packaging
-        
+
   - name: python-Pyparsing
     buildsystem: simple
     build-commands:
@@ -107,7 +107,7 @@ modules:
         x-checker-data:
           type: pypi
           name: Pyparsing
-        
+
   - name: python-toml
     buildsystem: simple
     ensure-writable:
@@ -121,7 +121,7 @@ modules:
         x-checker-data:
           type: pypi
           name: toml
-        
+
   - name: mmtf-cpp
     buildsystem: cmake-ninja
     sources:
@@ -133,7 +133,7 @@ modules:
           project-id: 221487
           stable-only: true
           url-template: https://github.com/rcsb/mmtf-cpp/archive/v$version.tar.gz
-        
+
   - name: python-mmtf-python
     buildsystem: simple
     build-commands:
@@ -168,34 +168,18 @@ modules:
         x-checker-data:
           type: pypi
           name: PyQt5-sip
- 
+
   - name: PyQt5
     buildsystem: simple
     build-commands:
-      - PYVER=$(python3 -c "import sys;print(sys.version_info[1])") &&
-        QMAKEPATH=/app/lib python3 configure.py
-        --confirm-license
-        --bindir=/app/bin
-        --destdir=/app/lib/python3.${PYVER}/site-packages
-        --designer-plugindir=/app/lib/plugins/designer
-        --qml-plugindir=/app/lib/plugins/PyQt5
-        --sipdir=/app/share/sip
-        --stubsdir=/app/lib/python3.${PYVER}/site-packages/PyQt5
-        --disable=QtBluetooth 
-        --disable=QtWebKit 
-        --disable=QtWebKitWidgets 
-        --disable=QtNfc 
-        --disable=QtPositioning
-        --disable=QtNetwork
-        --disable=QtTextToSpeech
-        --disable=QtMultimediaWidgets 
-        --disable=QtLocation 
-        --disable=QtDesigner
-        --disable=QtSensors 
-        --disable=QtWebEngine 
-        --disable=QtQuick 
-        --disable=QtQml 
-        --disable=QtTest 
+      - PYVER=$(python3 -c "import sys;print(sys.version_info[1])") && QMAKEPATH=/app/lib
+        python3 configure.py --confirm-license --bindir=/app/bin --destdir=/app/lib/python3.${PYVER}/site-packages
+        --designer-plugindir=/app/lib/plugins/designer --qml-plugindir=/app/lib/plugins/PyQt5
+        --sipdir=/app/share/sip --stubsdir=/app/lib/python3.${PYVER}/site-packages/PyQt5
+        --disable=QtBluetooth --disable=QtWebKit --disable=QtWebKitWidgets --disable=QtNfc
+        --disable=QtPositioning --disable=QtNetwork --disable=QtTextToSpeech --disable=QtMultimediaWidgets
+        --disable=QtLocation --disable=QtDesigner --disable=QtSensors --disable=QtWebEngine
+        --disable=QtQuick --disable=QtQml --disable=QtTest
       - make -j $FLATPAK_BUILDER_N_JOBS
       - make install
     cleanup:
@@ -207,7 +191,7 @@ modules:
         x-checker-data:
           type: pypi
           name: PyQt5
-        
+
   - name: glm
     buildsystem: simple
     build-commands:
@@ -266,7 +250,6 @@ modules:
         #url: https://gitlab.kitware.com/vtk/vtk-m/
         #tag: v1.5.1
         #commit: 74ffad9bd0679d061bc87e544a728f1c3c926269
-        
   - name: PyMOL
     buildsystem: simple
     #build-options:
