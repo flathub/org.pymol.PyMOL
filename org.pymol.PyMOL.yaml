@@ -102,8 +102,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/69/42/aa0fa900c3a5f142098e1b013995e92c2f31e1de68042cb95fa4a022bb8a/pyparsing-3.0.0.tar.gz
-        sha256: 001cad8d467e7a9248ef9fd513f5c0d39afcbcb9a43684101853bd0ab962e479
+        url: https://files.pythonhosted.org/packages/31/c9/b29ea153b9bffaae787ecc81873b4b51bd36cc13c37586b41891beae37eb/pyparsing-3.0.1.tar.gz
+        sha256: 84196357aa3566d64ad123d7a3c67b0e597a115c4934b097580e5ce220b91531
         x-checker-data:
           type: pypi
           name: Pyparsing
