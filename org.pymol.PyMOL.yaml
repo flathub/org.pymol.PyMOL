@@ -95,6 +95,8 @@ modules:
         x-checker-data:
           type: pypi
           name: packaging
+     - type: patch
+       path: relax-dependencies.patch
 
   - name: python-Pyparsing
     buildsystem: simple

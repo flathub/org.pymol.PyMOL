@@ -1,0 +1,12 @@
+diff -ruN a/setup.py b/setup.py
+--- a/setup.py	2021-10-29 13:25:02.000000000 +0200
++++ b/setup.py	2021-10-31 23:44:14.385012522 +0100
+@@ -48,7 +48,7 @@
+     author=about["__author__"],
+     author_email=about["__email__"],
+     python_requires=">=3.6",
+-    install_requires=["pyparsing>=2.0.2,<3"],  # Needed to avoid issue #91
++    install_requires=["pyparsing>=3.0.0"],
+     classifiers=[
+         "Development Status :: 5 - Production/Stable",
+         "Intended Audience :: Developers",
