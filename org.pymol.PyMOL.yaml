@@ -24,7 +24,7 @@ modules:
       - /include
       - /lib/cmake
       - /lib/pkgconfig
-      - '*.a'  
+      - '*.a'
     sources:
       - type: archive
         url: https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz
@@ -63,14 +63,14 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.8.0.tar.gz
-        sha256: aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092
+        url: https://github.com/Unidata/netcdf-c/archive/v4.8.1.tar.gz
+        sha256: bc018cc30d5da402622bf76462480664c6668b55eb16ba205a0dfb8647161dd0
         x-checker-data:
           type: anitya
           project-id: 10354
           stable-only: true
           url-template: https://github.com/Unidata/netcdf-c/archive/v$version.tar.gz
-        
+
   - name: python-numpy
     buildsystem: simple
     build-commands:
@@ -78,8 +78,8 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/0b/a7/e724c8df240687b5fd62d8c71f1a6709d455c4c09432c7412e3e64f4cbe5/numpy-1.21.1.zip
-        sha256: dff4af63638afcc57a3dfb9e4b26d434a7a602d225b42d746ea7fe2edf1342fd
+        url: https://files.pythonhosted.org/packages/5f/d6/ad58ded26556eaeaa8c971e08b6466f17c4ac4d786cd3d800e26ce59cc01/numpy-1.21.3.zip
+        sha256: 63571bb7897a584ca3249c86dd01c10bcb5fe4296e3568b2e9c1a55356b6410e
         x-checker-data:
           type: pypi
           name: numpy
@@ -90,24 +90,24 @@ modules:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz
-        sha256: 7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7
+        url: https://files.pythonhosted.org/packages/4d/34/523195b783e799fd401ad4bbc40d787926dd4c61838441df08bf42297792/packaging-21.2.tar.gz
+        sha256: 096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966
         x-checker-data:
           type: pypi
           name: packaging
-        
+
   - name: python-Pyparsing
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz
-        sha256: c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1
+        url: https://files.pythonhosted.org/packages/bf/6f/509e501ff67a335186c8adcdc3ee62195919731b22796b0690658a76bb6f/pyparsing-3.0.4.tar.gz
+        sha256: e0df773d7fa2240322daae7805626dfc5f2d5effb34e1a7be2702c99cfb9f6b1
         x-checker-data:
           type: pypi
           name: Pyparsing
-        
+
   - name: python-toml
     buildsystem: simple
     ensure-writable:
@@ -121,7 +121,7 @@ modules:
         x-checker-data:
           type: pypi
           name: toml
-        
+
   - name: mmtf-cpp
     buildsystem: cmake-ninja
     sources:
@@ -133,7 +133,7 @@ modules:
           project-id: 221487
           stable-only: true
           url-template: https://github.com/rcsb/mmtf-cpp/archive/v$version.tar.gz
-        
+
   - name: python-mmtf-python
     buildsystem: simple
     build-commands:
@@ -147,7 +147,7 @@ modules:
           name: mmtf-python
 
   - pyqt5/pyqt5.json
-        
+
   - name: glm
     buildsystem: simple
     build-commands:
@@ -206,7 +206,6 @@ modules:
         #url: https://gitlab.kitware.com/vtk/vtk-m/
         #tag: v1.5.1
         #commit: 74ffad9bd0679d061bc87e544a728f1c3c926269
-        
   - name: PyMOL
     buildsystem: simple
     #build-options:
