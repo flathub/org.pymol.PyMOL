@@ -8,7 +8,6 @@ finish-args:
   - --socket=x11
   - --device=dri
   - --share=network
-  - --socket=session-bus
 modules:
   - shared-modules/glew/glew.json
 
