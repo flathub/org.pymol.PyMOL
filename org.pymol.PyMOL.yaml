@@ -7,7 +7,7 @@ finish-args:
   - --share=ipc
   - --socket=x11
   - --device=dri
-
+  - --share=network
 modules:
   - shared-modules/glew/glew.json
 
