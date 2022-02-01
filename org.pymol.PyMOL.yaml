@@ -1,7 +1,7 @@
 app-id: org.pymol.PyMOL
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 command: pymol
 finish-args:
   - --share=ipc
@@ -172,15 +172,14 @@ modules:
   - name: PyQt5
     buildsystem: simple
     build-commands:
-      - PYVER=$(python3 -c "import sys;print(sys.version_info[1])") && QMAKEPATH=/app/lib
-        python3 configure.py --confirm-license --bindir=/app/bin --destdir=/app/lib/python3.${PYVER}/site-packages
+      - python3 configure.py --confirm-license --bindir=/app/bin --destdir=/app/lib/python3.${PYVER}/site-packages
         --designer-plugindir=/app/lib/plugins/designer --qml-plugindir=/app/lib/plugins/PyQt5
         --sipdir=/app/share/sip --stubsdir=/app/lib/python3.${PYVER}/site-packages/PyQt5
         --disable=QtBluetooth --disable=QtWebKit --disable=QtWebKitWidgets --disable=QtNfc
         --disable=QtPositioning --disable=QtNetwork --disable=QtTextToSpeech --disable=QtMultimediaWidgets
         --disable=QtLocation --disable=QtDesigner --disable=QtSensors --disable=QtWebEngine
         --disable=QtQuick --disable=QtQml --disable=QtTest
-      - make -j $FLATPAK_BUILDER_N_JOBS
+      - make
       - make install
     cleanup:
       - /bin
