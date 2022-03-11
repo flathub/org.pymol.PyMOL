@@ -179,7 +179,7 @@ modules:
         --disable=QtBluetooth --disable=QtWebKit --disable=QtWebKitWidgets --disable=QtNfc
         --disable=QtPositioning --disable=QtNetwork --disable=QtTextToSpeech --disable=QtMultimediaWidgets
         --disable=QtLocation --disable=QtDesigner --disable=QtSensors --disable=QtWebEngine
-        --disable=QtQuick --disable=QtQml --disable=QtTest --enable=QtCore --verbose
+        --disable=QtQuick --disable=QtQml --disable=QtTest
       - make -j $FLATPAK_BUILDER_N_JOBS
       - make install
     cleanup:
@@ -259,7 +259,7 @@ modules:
       #env:
         #PREFIX_PATH: "/app:/usr"
     build-commands:
-      - python setup.py install --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
+      - python3 setup.py install --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
       - install -Dm644 data/pymol/icons/icon2.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
       - install -Dm644 ${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
