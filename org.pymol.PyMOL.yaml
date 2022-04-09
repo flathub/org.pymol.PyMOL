@@ -1,7 +1,7 @@
 app-id: org.pymol.PyMOL
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 command: pymol
 finish-args:
   - --share=ipc
@@ -14,7 +14,6 @@ modules:
   - name: msgpack
     buildsystem: cmake-ninja
     config-opts:
-      - -DCMAKE_INSTALL_PREFIX=/app
       - -DBUILD_SHARED_LIBS=ON
       - -DMSGPACK_ENABLE_STATIC=OFF
       - -DCMAKE_INSTALL_LIBDIR=lib
