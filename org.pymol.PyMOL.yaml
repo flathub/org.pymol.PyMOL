@@ -4,11 +4,9 @@ sdk: org.kde.Sdk
 runtime-version: '5.15-21.08'
 base: com.riverbankcomputing.PyQt.BaseApp
 base-version: '5.15-21.08'
-#cleanup-commands:
-  #- /app/cleanup-BaseApp.sh
-#build-options:
-  #env:
-    #- BASEAPP_REMOVE_WEBENGINE=1
+build-options:
+  env:
+    - BASEAPP_REMOVE_WEBENGINE=1
 command: pymol
 finish-args:
   - --share=ipc
@@ -90,44 +88,6 @@ modules:
           stable-only: true
           url-template: https://github.com/Unidata/netcdf-c/archive/v$version.tar.gz
 
-  #- name: python-packaging
-    #buildsystem: simple
-    #build-commands:
-      #- python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
-    #sources:
-      #- type: archive
-        #url: https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz
-        #sha256: dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb
-        #x-checker-data:
-          #type: pypi
-          #name: packaging
-
-  #- name: python-Pyparsing
-    #buildsystem: simple
-    #build-commands:
-      #- python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
-    #sources:
-      #- type: archive
-        #url: https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz
-        #sha256: 18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea
-        #x-checker-data:
-          #type: pypi
-          #name: Pyparsing
-
-  #- name: python-toml
-    #buildsystem: simple
-    #ensure-writable:
-      #- /lib/python3.8/site-packages/easy-install.pth
-    #build-commands:
-      #- python3 setup.py install --prefix=${FLATPAK_DEST} --root=/ --optimize=1
-    #sources:
-      #- type: archive
-        #url: https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz
-        #sha256: b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f
-        #x-checker-data:
-          #type: pypi
-          #name: toml
-
   - name: mmtf-cpp
     buildsystem: cmake-ninja
     sources:
@@ -151,55 +111,6 @@ modules:
         x-checker-data:
           type: pypi
           name: mmtf-python
-
-  #- name: sip
-    #buildsystem: simple
-    #build-commands:
-      #- python3 setup.py install --prefix=/app --root=/
-    #cleanup:
-      #- /bin
-    #sources:
-      #- type: archive
-        #url: https://files.pythonhosted.org/packages/33/e9/27730ac17713c0a80d81d8f3bb56213f1549d96f9dc183fd16a7eec6287c/sip-5.5.0.tar.gz
-        #sha256: 5d024c419b30fea8a6de8c71a560c7ab0bc3c221fbfb14d55a5b865bd58eaac5
-
-  #- name: PyQt5_sip
-    #buildsystem: simple
-    #build-commands:
-      #- python3 setup.py install --prefix=/app --root=/
-    #sources:
-      #- type: archive
-        #url: https://files.pythonhosted.org/packages/c0/86/6b60c6a1b1d10524ed50fc4c6a2989492512bd46292a711318a53b243774/PyQt5_sip-12.9.1.tar.gz
-        #sha256: 2f24f299b44c511c23796aafbbb581bfdebf78d0905657b7cee2141b4982030e
-        #x-checker-data:
-          #type: pypi
-          #name: PyQt5-sip
-
-  #- name: PyQt5
-    #buildsystem: simple
-    #build-commands:
-      #- PYVER=$(python3 -c "import sys;print(sys.version_info[1])") && QMAKEPATH=/app/lib
-        #python3 configure.py --confirm-license --bindir=/app/bin --destdir=/app/lib/python3.${PYVER}/site-packages
-        #--designer-plugindir=/app/lib/plugins/designer --qml-plugindir=/app/lib/plugins/PyQt5
-        #--sipdir=/app/share/sip --stubsdir=/app/lib/python3.${PYVER}/site-packages/PyQt5
-        #--disable=QtBluetooth --disable=QtWebKit --disable=QtWebKitWidgets --disable=QtNfc
-        #--disable=QtPositioning --disable=QtNetwork --disable=QtTextToSpeech --disable=QtMultimediaWidgets
-        #--disable=QtLocation --disable=QtDesigner --disable=QtSensors --disable=QtWebEngine
-        #--disable=QtQuick --disable=QtQml --disable=QtTest
-      #- make -j $FLATPAK_BUILDER_N_JOBS
-      #- make install
-    #cleanup:
-      #- /bin
-    #sources:
-      #- type: archive
-        #url: https://files.pythonhosted.org/packages/3b/27/fd81188a35f37be9b3b4c2db1654d9439d1418823916fe702ac3658c9c41/PyQt5-5.15.6.tar.gz
-        #sha256: 80343bcab95ffba619f2ed2467fd828ffeb0a251ad7225be5fc06dcc333af452
-        #x-checker-data:
-          #type: pypi
-          #name: PyQt5
-        ## https://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg1828544.html
-      #- type: patch
-        #path: fix_QtCoremod_syntax_error.patch
 
   - name: glm
     buildsystem: simple
