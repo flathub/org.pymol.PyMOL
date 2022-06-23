@@ -1,9 +1,9 @@
 app-id: org.pymol.PyMOL
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-21.08
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: '5.15-21.08'
+base-version: 5.15-21.08
 build-options:
   env:
     - BASEAPP_REMOVE_WEBENGINE=1
@@ -20,11 +20,12 @@ modules:
     buildsystem: simple
     build-commands:
       - rm pyproject.toml
-      - pip3 install --exists-action=i --no-index --no-deps --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} .
+      - pip3 install --exists-action=i --no-index --no-deps --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/64/4a/b008d1f8a7b9f5206ecf70a53f84e654707e7616a771d84c05151a4713e9/numpy-1.22.3.zip
-        sha256: dbc7601a3b7472d559dc7b933b18b4b66f9aa7452c120e87dfb33d02008c8a18
+        url: https://files.pythonhosted.org/packages/03/c6/14a17e10813b8db20d1e800ff9a3a898e65d25f2b0e9d6a94616f1e3362c/numpy-1.23.0.tar.gz
+        sha256: bd3fa4fe2e38533d5336e1272fc4e765cabbbde144309ccee8675509d5cd7b05
         x-checker-data:
           type: pypi
           name: numpy
