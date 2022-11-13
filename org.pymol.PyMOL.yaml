@@ -1,9 +1,9 @@
 app-id: org.pymol.PyMOL
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-21.08
+runtime-version: 5.15-22.08
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: 5.15-21.08
+base-version: 5.15-22.08
 build-options:
   env:
     - BASEAPP_REMOVE_WEBENGINE=1
@@ -19,13 +19,11 @@ modules:
   - name: python-numpy
     buildsystem: simple
     build-commands:
-      - rm pyproject.toml
-      - pip3 install --exists-action=i --no-index --no-deps --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} .
+      - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/0a/88/f4f0c7a982efdf7bf22f283acf6009b29a9cc5835b684a49f8d3a4adb22f/numpy-1.23.3.tar.gz
-        sha256: 51bf49c0cd1d52be0a240aa66f3458afc4b95d8993d2d04f0d91fa60c10af6cd
+        url: https://files.pythonhosted.org/packages/64/8e/9929b64e146d240507edaac2185cd5516f00b133be5b39250d253be25a64/numpy-1.23.4.tar.gz
+        sha256: ed2cc92af0efad20198638c69bb0fc2870a58dabfba6eb722c933b48556c686c
         x-checker-data:
           type: pypi
           name: numpy
@@ -47,11 +45,11 @@ modules:
       - type: archive
         url: https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz
         sha256: 6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b
-        x-checker-data:
-          type: anitya
-          project-id: 12278
-          stable-only: true
-          url-template: https://github.com/msgpack/msgpack-c/releases/download/cpp-$version/msgpack-$version.tar.gz
+        # x-checker-data:
+        #   type: anitya
+        #   project-id: 12278
+        #   stable-only: true
+        #   url-template: https://github.com/msgpack/msgpack-c/releases/download/cpp-$version/msgpack-$version.tar.gz
 
   - name: hdf5
     buildsystem: cmake-ninja
@@ -66,8 +64,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_2.tar.gz
-        sha256: 6b97168ce262d7f9fa67355171e8e1899989046bf70ca5735341b0872760af9a
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_3.tar.gz
+        sha256: a59d046486c9e2076a33b5b389479a2476cfe496601dffd36bd354755630d22c
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -194,6 +192,14 @@ modules:
         # https://src.fedoraproject.org/rpms/pymol/tree/rawhide
       - type: patch
         path: pymol-mmtf.patch
+      - type: patch
+        path: pymol-2.5.0-bug186.patch
+      - type: patch
+        path: pymol-setup.py.patch
+      - type: patch
+        path: pymol-wmclass-main.patch
+      - type: patch
+        path: pymol-wmclass-pmgapp.patch
       - type: file
         path: org.pymol.PyMOL.metainfo.xml
       - type: file
