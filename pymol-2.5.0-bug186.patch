@@ -1,0 +1,13 @@
+--- a/layer1/Basis.orig.h	2021-05-10 20:38:37.000000000 +0200
++++ b/layer1/Basis.h	2021-10-05 20:07:14.567410004 +0200
+@@ -38,6 +38,10 @@
+ 
+ */
+ 
++#ifdef None
++#undef None
++#endif
++
+ enum class cCylCap {
+   None = 0,
+   Flat = 1,
