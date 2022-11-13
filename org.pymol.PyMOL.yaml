@@ -45,11 +45,11 @@ modules:
       - type: archive
         url: https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz
         sha256: 6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b
-        x-checker-data:
-          type: anitya
-          project-id: 12278
-          stable-only: true
-          url-template: https://github.com/msgpack/msgpack-c/releases/download/cpp-$version/msgpack-$version.tar.gz
+        # x-checker-data:
+        #   type: anitya
+        #   project-id: 12278
+        #   stable-only: true
+        #   url-template: https://github.com/msgpack/msgpack-c/releases/download/cpp-$version/msgpack-$version.tar.gz
 
   - name: hdf5
     buildsystem: cmake-ninja
