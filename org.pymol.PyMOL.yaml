@@ -64,8 +64,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_3.tar.gz
-        sha256: a59d046486c9e2076a33b5b389479a2476cfe496601dffd36bd354755630d22c
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_0.tar.gz
+        sha256: 0f2ec13c1bf6e9f506fd03681c83a476d722e7479cad9ce6f8585a26c317d0ad
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -79,8 +79,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.9.0.tar.gz
-        sha256: 9f4cb864f3ab54adb75409984c6202323d2fc66c003e5308f3cdf224ed41c0a6
+        url: https://github.com/Unidata/netcdf-c/archive/v4.9.1.tar.gz
+        sha256: 4ee8d5f6b50a1eb4ad4c10f24531e36261fd1882410fb08435eb2ddfd49a0908
         x-checker-data:
           type: anitya
           project-id: 10354
