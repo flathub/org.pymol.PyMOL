@@ -22,8 +22,8 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/ce/b8/c170db50ec49d5845bd771bc5549fe734ee73083c5c52791915f95d8e2bc/numpy-1.24.1.tar.gz
-        sha256: 2386da9a471cc00a1f47845e27d916d5ec5346ae9696e01a8a34760858fe9dd2
+        url: https://files.pythonhosted.org/packages/e4/a9/6704bb5e1d1d778d3a6ee1278a8d8134f0db160e09d52863a24edb58eab5/numpy-1.24.2.tar.gz
+        sha256: 003a9f530e880cb2cd177cba1af7220b9aa42def9c4afc2a2fc3ee6be7eb2b22
         x-checker-data:
           type: pypi
           name: numpy
@@ -64,8 +64,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_3.tar.gz
-        sha256: a59d046486c9e2076a33b5b389479a2476cfe496601dffd36bd354755630d22c
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_0.tar.gz
+        sha256: 0f2ec13c1bf6e9f506fd03681c83a476d722e7479cad9ce6f8585a26c317d0ad
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -79,8 +79,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.9.0.tar.gz
-        sha256: 9f4cb864f3ab54adb75409984c6202323d2fc66c003e5308f3cdf224ed41c0a6
+        url: https://github.com/Unidata/netcdf-c/archive/v4.9.1.tar.gz
+        sha256: 4ee8d5f6b50a1eb4ad4c10f24531e36261fd1882410fb08435eb2ddfd49a0908
         x-checker-data:
           type: anitya
           project-id: 10354
