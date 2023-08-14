@@ -22,8 +22,8 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/d0/b2/fe774844d1857804cc884bba67bec38f649c99d0dc1ee7cbbf1da601357c/numpy-1.25.0.tar.gz
-        sha256: f1accae9a28dc3cda46a91de86acf69de0d1b5f4edd44a9b0c3ceb8036dfff19
+        url: https://files.pythonhosted.org/packages/a0/41/8f53eff8e969dd8576ddfb45e7ed315407d27c7518ae49418be8ed532b07/numpy-1.25.2.tar.gz
+        sha256: fd608e19c8d7c55021dffd43bfe5492fab8cc105cc8986f813f8c3c048b38760
         x-checker-data:
           type: pypi
           name: numpy
@@ -64,8 +64,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_1-2.tar.gz
-        sha256: c05846ca3f5ab1b2673f4ac1c0ff7b2f5285ab8ab99d25368dce1fdf25ad0a4a
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_2.tar.gz
+        sha256: 83eaee3f9d1790bb4b29368bf1a648ece763097a4122c80a81076e8fb1e890e6
         x-checker-data:
           type: anitya
           project-id: 1303
