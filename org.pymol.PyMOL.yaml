@@ -1,9 +1,9 @@
 app-id: org.pymol.PyMOL
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-22.08
+runtime-version: 5.15-23.08
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: 5.15-22.08
+base-version: 5.15-23.08
 build-options:
   env:
     - BASEAPP_REMOVE_WEBENGINE=1
