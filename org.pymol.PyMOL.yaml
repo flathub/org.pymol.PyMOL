@@ -118,8 +118,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/g-truc/glm
-        tag: 0.9.9.8
-        commit: bf71a834948186f4097caa076cd2663c69a10e1e
+        tag: 1.0.0
+        commit: 33b0eb9fa336ffd8551024b1d2690e418014553b
         x-checker-data:
           type: git
           tag-pattern: ([\d.]+)$
