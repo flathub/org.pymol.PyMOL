@@ -22,8 +22,8 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/dd/2b/205ddff2314d4eea852e31d53b8e55eb3f32b292efc3dd86bd827ab9019d/numpy-1.26.2.tar.gz
-        sha256: f65738447676ab5777f11e6bbbdb8ce11b785e105f690bc45966574816b6d3ea
+        url: https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz
+        sha256: 2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010
         x-checker-data:
           type: pypi
           name: numpy
@@ -118,8 +118,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/g-truc/glm
-        tag: 0.9.9.8
-        commit: bf71a834948186f4097caa076cd2663c69a10e1e
+        tag: 1.0.1
+        commit: c0435679716e547852fd704a70843b73cedfd113
         x-checker-data:
           type: git
           tag-pattern: ([\d.]+)$
