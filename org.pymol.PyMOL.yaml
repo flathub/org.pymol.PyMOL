@@ -181,8 +181,8 @@ modules:
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/schrodinger/pymol-open-source/archive/v2.5.0.tar.gz
-        sha256: aa828bf5719bd9a14510118a93182a6e0cadc03a574ba1e327e1e9780a0e80b3
+        url: https://github.com/schrodinger/pymol-open-source/archive/v3.0.0.tar.gz
+        sha256: 45e800a02680cec62dff7a0f92283f4be7978c13a02934a43ac6bb01f67622cf
         x-checker-data:
           type: anitya
           project-id: 100773
