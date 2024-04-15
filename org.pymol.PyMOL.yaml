@@ -64,8 +64,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_3.tar.gz
-        sha256: df5ee33c74d5efb59738075ef96f4201588e1f1eeb233f047ac7fd1072dee1f6
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1.14.4.1.tar.gz
+        sha256: a29f96f7638d925bde7d227802ba8ff6fd09edec655677b30021a367a83a4dcd
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -181,8 +181,8 @@ modules:
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/schrodinger/pymol-open-source/archive/v2.5.0.tar.gz
-        sha256: aa828bf5719bd9a14510118a93182a6e0cadc03a574ba1e327e1e9780a0e80b3
+        url: https://github.com/schrodinger/pymol-open-source/archive/v3.0.0.tar.gz
+        sha256: 45e800a02680cec62dff7a0f92283f4be7978c13a02934a43ac6bb01f67622cf
         x-checker-data:
           type: anitya
           project-id: 100773
