@@ -22,8 +22,8 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz
-        sha256: 2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010
+        url: https://files.pythonhosted.org/packages/ec/d0/c12ddfd3a02274be06ffc71f3efc6d0e457b0409c4481596881e748cb264/numpy-2.2.2.tar.gz
+        sha256: ed6906f61834d687738d25988ae117683705636936cc605be0bb208b23df4d8f
         x-checker-data:
           type: pypi
           name: numpy
@@ -64,8 +64,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_3.tar.gz
-        sha256: df5ee33c74d5efb59738075ef96f4201588e1f1eeb233f047ac7fd1072dee1f6
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1.14.5.tar.gz
+        sha256: 8a639f829d2b1e39a206ff4cbaeb9047d88541a7ca5a8b65b7af52b667846d0d
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -181,8 +181,8 @@ modules:
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/schrodinger/pymol-open-source/archive/v3.0.0.tar.gz
-        sha256: 45e800a02680cec62dff7a0f92283f4be7978c13a02934a43ac6bb01f67622cf
+        url: https://github.com/schrodinger/pymol-open-source/archive/v3.1.0.tar.gz
+        sha256: 54306d65060bd58ed8b3dab1a8af521aeb4fd417871f15f463ff05ccb4e121fe
         x-checker-data:
           type: anitya
           project-id: 100773
