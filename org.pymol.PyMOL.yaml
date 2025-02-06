@@ -1,9 +1,9 @@
 app-id: org.pymol.PyMOL
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-23.08
+runtime-version: 5.15-24.08
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: 5.15-23.08
+base-version: 5.15-24.08
 build-options:
   env:
     - BASEAPP_REMOVE_WEBENGINE=1
@@ -16,14 +16,34 @@ finish-args:
 modules:
   - shared-modules/glew/glew.json
 
-  - name: python-numpy
-    buildsystem: simple
-    build-commands:
-      - python3 setup.py install --prefix=/app --root=/
+  - name: openblas # dependency for numpy
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DBUILD_TESTING:BOOL=OFF
+      - -DDYNAMIC_ARCH:BOOL=ON
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz
-        sha256: 2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010
+        url: https://github.com/xianyi/OpenBLAS/archive/v0.3.29.tar.gz
+        sha256: 38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb
+        x-checker-data:
+          type: anitya
+          project-id: 2540
+          url-template: https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz
+
+  - meson-python.json #for numpy
+
+  - name: python-numpy
+    buildsystem: simple
+    build-options:
+      ldflags: -lgfortran
+    build-commands:
+      - pip3 install --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST}
+        --no-build-isolation .
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/ec/d0/c12ddfd3a02274be06ffc71f3efc6d0e457b0409c4481596881e748cb264/numpy-2.2.2.tar.gz
+        sha256: ed6906f61834d687738d25988ae117683705636936cc605be0bb208b23df4d8f
         x-checker-data:
           type: pypi
           name: numpy
@@ -55,17 +75,14 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_TESTING:BOOL=OFF
       - -DHDF5_BUILD_EXAMPLES:BOOL=OFF
-      - -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON
-      - -DDEFAULT_API_VERSION:STRING=v18
     cleanup:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_3.tar.gz
-        sha256: df5ee33c74d5efb59738075ef96f4201588e1f1eeb233f047ac7fd1072dee1f6
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1.14.6.tar.gz
+        sha256: 6df53f84376d87e96eeb255703e3b1a348fc08a48e06e37053f1bfb379970189
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -171,9 +188,6 @@ modules:
         #commit: 74ffad9bd0679d061bc87e544a728f1c3c926269
   - name: PyMOL
     buildsystem: simple
-    #build-options:
-      #env:
-        #PREFIX_PATH: "/app:/usr"
     build-commands:
       - python3 setup.py install --prefix=${FLATPAK_DEST} --pymol-path=/app/share/pymol
       - install -Dm644 data/pymol/icons/icon2.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
@@ -181,8 +195,8 @@ modules:
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/schrodinger/pymol-open-source/archive/v3.0.0.tar.gz
-        sha256: 45e800a02680cec62dff7a0f92283f4be7978c13a02934a43ac6bb01f67622cf
+        url: https://github.com/schrodinger/pymol-open-source/archive/v3.1.0.tar.gz
+        sha256: 54306d65060bd58ed8b3dab1a8af521aeb4fd417871f15f463ff05ccb4e121fe
         x-checker-data:
           type: anitya
           project-id: 100773
