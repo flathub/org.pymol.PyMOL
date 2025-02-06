@@ -52,9 +52,7 @@
  <developer_name>Schrödinger, Inc.</developer_name>
  <content_rating type="oars-1.1"/>
  <releases>
-     <release version="3.1.0" date="2025-02-02">
-         <description></description>
-     </release>
+     <release version="3.1.0" date="2025-02-02"/>
      <release version="3.0.0" date="2024-05-05"/>
      <release version="2.5.0." date="2021-05-10">
      </release>    
