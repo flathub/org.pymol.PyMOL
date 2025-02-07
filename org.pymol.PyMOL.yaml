@@ -42,8 +42,8 @@ modules:
         --no-build-isolation .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz
-        sha256: 2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010
+        url: https://files.pythonhosted.org/packages/ec/d0/c12ddfd3a02274be06ffc71f3efc6d0e457b0409c4481596881e748cb264/numpy-2.2.2.tar.gz
+        sha256: ed6906f61834d687738d25988ae117683705636936cc605be0bb208b23df4d8f
         x-checker-data:
           type: pypi
           name: numpy
@@ -96,8 +96,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.9.2.tar.gz
-        sha256: bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7
+        url: https://github.com/Unidata/netcdf-c/archive/v4.9.3.tar.gz
+        sha256: 990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff
         x-checker-data:
           type: anitya
           project-id: 10354
