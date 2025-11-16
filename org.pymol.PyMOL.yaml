@@ -22,14 +22,23 @@ modules:
     config-opts:
       - -DBUILD_TESTING:BOOL=OFF
       - -DDYNAMIC_ARCH:BOOL=ON
+    cleanup:
+      - /bin
+      - /include
+      - /lib/cmake
+      - /lib/debug
+      - /lib/*.a
+      - /lib/*.la
+      - /lib/pkgconfig
+      - /share/man
     sources:
       - type: archive
-        url: https://github.com/xianyi/OpenBLAS/archive/v0.3.29.tar.gz
-        sha256: 38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb
+        url: https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.30/OpenBLAS-0.3.30.tar.gz
+        sha512: c726ced2d3e6ebd3ddcd0b13c255bb43fae8c12d2aec15e9ef992b0bc7099996c02cd284ccaaa7b5fac3f23f280b098063dd60f521d97a68dc183ab192fcccdb
         x-checker-data:
           type: anitya
           project-id: 2540
-          url-template: https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz
+          url-template: https://github.com/OpenMathLib/OpenBLAS/archive/v$version.tar.gz
 
   - meson-python.json #for numpy
 
