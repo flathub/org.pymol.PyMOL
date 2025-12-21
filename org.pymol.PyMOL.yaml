@@ -32,7 +32,7 @@ modules:
       - /share/man
     sources:
       - type: archive
-        url: https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.30/OpenBLAS-0.3.30.tar.gz
+        url: https://github.com/OpenMathLib/OpenBLAS/archive/v0.3.30.tar.gz
         sha512: c726ced2d3e6ebd3ddcd0b13c255bb43fae8c12d2aec15e9ef992b0bc7099996c02cd284ccaaa7b5fac3f23f280b098063dd60f521d97a68dc183ab192fcccdb
         x-checker-data:
           type: anitya
@@ -50,8 +50,8 @@ modules:
         --no-build-isolation .
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz
-        sha256: 2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010
+        url: https://files.pythonhosted.org/packages/a4/7a/6a3d14e205d292b738db449d0de649b373a59edb0d0b4493821d0a3e8718/numpy-2.4.0.tar.gz
+        sha256: 6e504f7b16118198f138ef31ba24d985b124c2c469fe8467007cf30fd992f934
         x-checker-data:
           type: pypi
           name: numpy
@@ -104,8 +104,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.9.2.tar.gz
-        sha256: bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7
+        url: https://github.com/Unidata/netcdf-c/archive/v4.9.3.tar.gz
+        sha256: 990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff
         x-checker-data:
           type: anitya
           project-id: 10354
@@ -143,8 +143,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/g-truc/glm
-        tag: 1.0.1
-        commit: 0af55ccecd98d4e5a8d1fad7de25ba429d60e863
+        tag: 1.0.2
+        commit: a532f5b1cf27d6a3c099437e6959cf7e398a0a67
         x-checker-data:
           type: git
           tag-pattern: ([\d.]+)$
