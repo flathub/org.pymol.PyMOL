@@ -55,6 +55,8 @@ modules:
         x-checker-data:
           type: pypi
           name: numpy
+          versions:
+            <: "2"
 
   - name: msgpack
     buildsystem: cmake-ninja
