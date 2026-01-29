@@ -32,8 +32,8 @@ modules:
       - /share/man
     sources:
       - type: archive
-        url: https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.30/OpenBLAS-0.3.30.tar.gz
-        sha512: c726ced2d3e6ebd3ddcd0b13c255bb43fae8c12d2aec15e9ef992b0bc7099996c02cd284ccaaa7b5fac3f23f280b098063dd60f521d97a68dc183ab192fcccdb
+        url: https://github.com/OpenMathLib/OpenBLAS/archive/v0.3.31.tar.gz
+        sha512: 703b84c476c148a0922a04b1c33c9c4c452f478d608d93e59204b8f0f2c516344301ff0a4dbb3750a2449db0d28cc2df001c295898e859b41ecb8381f9c2eab8
         x-checker-data:
           type: anitya
           project-id: 2540
@@ -56,7 +56,7 @@ modules:
           type: pypi
           name: numpy
           versions:
-            <: "2"
+            <: '2'
 
   - name: hdf5
     buildsystem: cmake-ninja
@@ -83,8 +83,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/Unidata/netcdf-c/archive/v4.9.2.tar.gz
-        sha256: bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7
+        url: https://github.com/Unidata/netcdf-c/archive/v4.9.3.tar.gz
+        sha256: 990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff
         x-checker-data:
           type: anitya
           project-id: 10354
@@ -122,8 +122,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/g-truc/glm
-        tag: 1.0.1
-        commit: 0af55ccecd98d4e5a8d1fad7de25ba429d60e863
+        tag: 1.0.3
+        commit: 8d1fd52e5ab5590e2c81768ace50c72bae28f2ed
         x-checker-data:
           type: git
           tag-pattern: ([\d.]+)$
